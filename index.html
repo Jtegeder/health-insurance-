@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+</head> 
+
+
+<body> 
+    <h1>Health Insurance Risk Calculater V1.0</h1>
+
+    <p>Welcome to Health insurance Rsik Calculater. You will be asked questions regarding your BMI, blood pressure, age, and history of disease that runs in family. </p>
+    
+    
+    
+    <h2>To calculate BMI (your body-mass index), please anwser the questions below...</h2>
+
+    <label>What is your height and weight? (Please input your height in feet and inches, for exmaple: Five foot ten would be: 5'10" :)</label><br /><br />
+    <select id="height"> 
+        <option value="56">4'8" or less</option>
+        <option value="57">4'9"</option>
+        <option value="58">4'10"</option>
+        <option value="59">4'11"</option>
+        <option value="60">5'0"</option>
+        <option value="61">5'1"</option>
+        <option value="62">5'2"</option>
+        <option value="63">5'3"</option>
+        <option value="64">5'4"</option>
+        <option value="65">5'5"</option>
+        <option value="66">5'6"</option>
+        <option value="67">5'7"</option>
+        <option value="68">5'8"</option>
+        <option value="69">5'9"</option>
+        <option value="70">5'10"</option>
+        <option value="71">6'0"</option>
+        <option value="72">6'1"</option>
+        <option value="73">6'2"</option>
+        <option value="74">6'3"</option>
+        <option value="75">6'4"</option>
+        <option value="76">6'5"</option>
+        <option value="77">6'6"</option>
+        <option value="78">6'7"</option>
+        <option value="79">6'8"</option>
+        <option value="80">6'9"</option>
+        <option value="81">6'10"</option>
+        <option value="82">6'11" or greater</option>
+    </select>
+
+    <br /><br /><br />
+
+    <label>What is your weight? (Input weight in lbs) </label><br /><br />
+    <select id="weight">
+        <option value="80">80 lbs or less</option>
+        <option value="90">90 lbs</option>
+        <option value="100">100 lbs</option>
+        <option value="110">110 lbs</option>
+        <option value="120">120 lbs</option>
+        <option value="130">130 lbs</option>
+        <option value="140">140 lbs</option>
+        <option value="150">150 lbs</option>
+        <option value="160">160 lbs</option>
+        <option value="170">170 lbs</option>
+        <option value="180">180 lbs</option>
+        <option value="190">190 lbs</option>
+        <option value="200">200 lbs</option>
+        <option value="210">210 lbs</option>
+        <option value="220">220 lbs</option>
+        <option value="230">230 lbs</option>
+        <option value="240">240 lbs</option>
+        <option value="250">250 lbs</option>
+        <option value="260">260 lbs</option>
+        <option value="270">270 lbs</option>
+        <option value="280">280 lbs</option>
+        <option value="290">290 lbs</option>
+        <option value="300">300 lbs or more</option>
+    </select>
+
+    <br /><br /><br />
+
+    <botton onclick="calculateBMI()">Calculate BMI</botton>
+    <p id="bmiresults"></p>
+    <p id="bmimessage"></p>
+
+
+
+    <label> Based on results shown, what is your BMI? </label>
+    <select id="bmi">
+        <option value="0">Normal BMI</option>
+        <option value="30">Overweight BMI</option>
+        <option value="75">Obese BMI</option>
+    </select>
+
+    <br /><br /> 
+
+    <label>Do you/have you ever had diabetes ?</label>
+    <select id="diabetes">
+        <option value="0">no</option>
+        <option value="10">yes</option>
+    </select>
+
+    <br /><br />
+
+    <label>Do you/have you ever had Alzheimers ?</label>
+    <select id="Alzheimers">
+        <option value="0">no</option>
+        <option value="10">yes</option>
+    </select>
+
+    <br /><br />
+
+    <label>Do you/have you ever had cancer ? </label>
+    <select id="cancer">
+        <option value="0">no</option>
+        <option value="10">yes</option>
+    </select>
+
+    <br /><br />
+
+    <label>How old are you ? </label>
+    <select id="age">
+        <option value="0">Younger than 30</option>
+        <option value="10">30-40</option>
+        <option value="20">45-60</option>
+        <option value="30">Older than 60</option>
+    </select>
+
+    <br /><br />
+
+    <img src="bloodpressure.png" alt="Blood Pressure Categories"> <br><br />
+
+    <label>Determine your blood pressure based on the cart presented above</label>
+    <select id="bloodpressure">
+        <option value="0">normal</option>
+        <option value="15">elevated</option>
+        <option value="30">hypertension stage 1</option>
+        <option value="75">hypertension stage 2</option>
+        <option value="100">hypertensive crisis</option>
+    </select>
+
+    <br /><br /> 
+
+    <button onlick="calculateRisk()">Calculate Risk</button>
+    <p id="risk"></p>
+
+
+
+<script> 
+    console.log("Starting Health Insurance Risk Calculator")
+
+    function calculateRisk() {
+        console.log("calculateRisk()");
+
+        let bmiResponceValue = parseInt(document.getElementById("bmi").selectedOptions[0].value);
+        console.log("bmiResponceValue = " + bmiResponceValue); 
+
+        let diabetesResponceValue = parseInt(document.getElementById("diabetes").selectedOptions[0].value);
+        console.log("diabetesResponceValue = " + diabetesResponceValue );
+
+        let alzheimersResponceValue = parseInt(document.getElementById("alzheimers").selectedOptions[0].value);
+        console.log("alzheimersResponceValue = " + alzheimersResponceValue );
+
+        let cancerResponceValue = parseInt(document.getElementById("cancer").selectedOptions[0].value);
+        console.log("cancerResponceValue = " + cancerResponceValue );
+
+        let ageResponceValue = parseInt(document.getElementById("age").selectedOptions[0].value);
+        console.log("ageResponceValue = " + ageResponceValue );
+
+        let bloodpressureResponceValue = parseInt(document.getElementById("bloodpressure ").selectedOptions[0].value);
+        console.log("bloodpressureResponceValue = " + bloodpressureResponceValue );
+
+
+
+        let totalRisk = bmiResponceValue + diabetesResponceValue + alzheimersResponceValue + cancerResponceValue + ageResponceValue + bloodpressureResponceValue;
+        console.log ("totalRisk = " + totalRisk)
+
+        document.getElementById("risk").innerHTML = "your total risk is: " + totalrisk; 
+
+        if (totalRisk <=20) { 
+            document.getElementById("risk").innerHTML = "Total risk is: " + totalRisk + "low risk"
+        } else if (totalRisk <= 50) { 
+            document.getElementById("risk").innerHTML = "Total risk is: " + totalRisk + "Meduim risk"
+        } else if (totalRisk <= 75) { 
+            document.getElementById("risk").innerHTML = "Total risk is: " + totalRisk + "High risk"
+        }
+
+    }
+
+    function BMI(height, weight) {
+        return (703 * weight) / (height * height)
+
+    }
+
+    function calculateBMI() {
+        console.log("calculateBMI()")
+        let heightValueInInches = parseInt(document.getElementById("height").selectedOptions[0].value);
+        let weightValueInLBS = parseInt(document.getElementById("weight").selectedOptions[0].value);
+
+        console.log("height=" + heightValueInInches + " and weight= + weightValueInLBS");
+
+        let bmiValue = BMI(heightValueInInches, weightValueInLBS)
+        console.log("BMI=" + bmiValue)
+
+        bmiValue = Math.round(bmiValue * 10) / 10 
+        console.log("BMI=" + bmiValue)
+
+        document.getElementById("bmiResult").innerHTML = " Your BMI is: " + bmiValue
+
+        if (bmiValue < 24.9) { 
+            document.getElementById("bmiResult").innerHTML = "Your BMI is: " + bmiValue + "Normal BMI"
+        } else if (bmiValue < 29.9) {
+            document.getElementById("bmiResult").innerHTML = "Your BMI is: " + bmiValue + "Overweight BMI "
+        } else {  
+            document.getElementById("bmiResult").innerHTML = "Your BMI is: " + bmiValue +  "Obese BMI"
+        }
+        document.getElementById("bmi")
+    }
+    </script> 
+
+</body>
+
+</html> 
+
+
+
+
+
+
+        
+
+
+
+
+        
